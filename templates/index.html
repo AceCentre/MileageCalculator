@@ -1,0 +1,74 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block styles %}
+  {{ super() }}
+<style>
+
+header {
+  width: 100%;
+  height: 125px;
+  background: url('static/headercar.jpg') no-repeat center;
+  background-size: cover;
+  font-family: "Oswald", sans-serif;
+  font-size: 80px;
+  color: white;
+  float:none;
+   display:inline-block;
+   vertical-align:middle;
+   margin-right:-4px;
+}
+
+  </style>
+{%endblock%}
+
+{% block content %}
+
+  <header>
+          <h1 class="text-center" id="logo"> British Miles </h1>
+  </header>
+<hr>
+<div class="row">
+      <div class="col-sm-6">
+          <form action="/save" method="post" class="form" role="form">
+          <div class="form-group "><label class="control-label" for="postal_code_data">Postal code data</label>
+          <textarea class="form-control" rows=10 id="postal_code_data" name="postal_code_data"> </textarea>
+          <div class="radio">
+            <label><input type="radio" name="route choice" value="fastest"{%if route == 'fastest'%}
+              checked {% endif %}>Fastest Route</label>
+            <label><input type="radio" name="route choice" value="shortest"{%if route == 'shortest'%}
+              checked {% endif %}>Shortest Route</label>
+          </div>
+
+            <input class="btn btn-default" id="submit_button" name="submit_button" type="submit" value="Submit">
+
+          </div>
+          </form>
+       </div>
+
+
+
+  <div class="col-sm-6">
+  {%if list_of_distances != None %}
+  <table class=table table-condensed>
+
+    <thead>
+      <tr>
+        <th>Addresses</th>
+        <th> Distance </th>
+      </tr>
+    </thead>
+      {%for item in postal_code_list %}
+        <tr>
+          <th>
+        {%for code in item%}
+          {{code}}
+        {% endfor %}
+      </th>
+        <th> {{list_of_distances[loop.index-1]}} Miles </th>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+{% endif %}
+{% endblock %}

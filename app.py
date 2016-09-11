@@ -11,8 +11,7 @@ from wtforms import Form, TextAreaField, SubmitField, StringField, SelectField
 import os
 import csv
 
-port = int(os.environ.get('PORT', 5000)) 
-
+port = int(os.environ.get('PORT', 5000))
 API_KEY_FILE_NAME = "apikey.txt"
 CSV_MESSAGE = "Export CSV'"
 class PostalForm(FlaskForm):

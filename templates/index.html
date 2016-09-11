@@ -42,7 +42,7 @@ header {
             <input class="btn btn-default" id="submit_button" name="submit_button" type="submit" value="Submit">
 
           </div>
-          </form>
+
        </div>
 
 
@@ -68,6 +68,14 @@ header {
         </tr>
       {% endfor %}
     </table>
+  </form>
+  <form action="/download" method ="post" class="form" role="form">
+    <input type="hidden" name="postal_code_data" value="{{postal_code_data}}">
+    <input type="hidden" name="route_choice" value ="{{route}}">
+    <input type="hidden" name ="list_of_distances" value="{{list_of_distances}}">
+    <input type=submit class= "btn btn-primary btn-lg" name="format" value="Export CSV">
+  <!--  <input type=submit class= "btn btn-success btn-lg" name="format" value="Google Sheet"> -->
+  </form>
   </div>
 
 {% endif %}

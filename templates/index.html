@@ -31,7 +31,7 @@ header {
       <div class="col-sm-6">
           <form action="/save" method="post" class="form" role="form">
           <div class="form-group "><label class="control-label" for="postal_code_data">Postal code data</label>
-          <textarea class="form-control" rows=10 id="postal_code_data" name="postal_code_data"> </textarea>
+          <textarea class="form-control" rows=10 id="postal_code_data" name="postal_code_data">{{postal_code_data}}</textarea>
           <div class="radio">
             <label><input type="radio" name="route choice" value="fastest"{%if route == 'fastest'%}
               checked {% endif %}>Fastest Route</label>
@@ -54,7 +54,7 @@ header {
     <thead>
       <tr>
         <th>Addresses</th>
-        <th> Distance </th>
+        <th> Distance (Miles) </th>
       </tr>
     </thead>
       {%for item in postal_code_list %}
@@ -64,7 +64,7 @@ header {
           {{code}}
         {% endfor %}
       </th>
-        <th> {{list_of_distances[loop.index-1]|round|int }} Miles </th>
+        <th> {{list_of_distances[loop.index-1]|round|int }}</th>
         </tr>
       {% endfor %}
     </table>

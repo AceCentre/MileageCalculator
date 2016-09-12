@@ -64,7 +64,7 @@ header {
           {{code}}
         {% endfor %}
       </th>
-        <th> {{list_of_distances[loop.index-1]}} Miles </th>
+        <th> {{list_of_distances[loop.index-1]|round }} Miles </th>
         </tr>
       {% endfor %}
     </table>

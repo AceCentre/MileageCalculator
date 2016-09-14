@@ -31,7 +31,10 @@ header {
       <div class="col-sm-6">
           <form action="/save" method="post" class="form" role="form">
           <div class="form-group "><label class="control-label" for="postal_code_data">Postal code data</label>
-          <textarea class="form-control" rows=10 id="postal_code_data" name="postal_code_data">{{postal_code_data}}</textarea>
+          <textarea class="form-control" rows=10 id="postal_code_data" name="postal_code_data">{{postal_code_data}}</textarea> <br />
+          e.g. <br />
+          OL8 3QL to OX29 3SY to BR4 OER to OL8 3QL <br />
+          OL8 3QL to OX293SY to OL83QL <br />
           <div class="radio">
             <label><input type="radio" name="route choice" value="fastest"{%if route == 'fastest'%}
               checked {% endif %}>Fastest Route</label>

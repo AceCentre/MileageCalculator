@@ -1,18 +1,21 @@
-from postcodes import PostCoder
+import requests
 import googlemaps
 import json
 from datetime import datetime
+import logging
 
-class PostalCodeDistance(PostCoder):
+
+class PostalCodeDistance():
     MODE = "driving"
     UNITS = 'imperial'
     ALTERNATIVES = 'True'
     METERS_IN_A_MILE = 1600
 
     def __init__(self,postal_code_data, api_key):
-        PostCoder.__init__(self)
+        self.base_postcoder = 'https://mapit.mysociety.org/postcode/'
         self.postal_code_data = postal_code_data
         self.client = googlemaps.Client(api_key)
+        logging.warning(self.client)
 
 
     def get_postal_codes(self, data):
@@ -26,11 +29,13 @@ class PostalCodeDistance(PostCoder):
         #takes a list of postal codes and returns a list of corresponding lat/long
         lat_long_list = []
         for code in postal_code_list:
-            code_data = self.get(code) #invalid postal codes return None
-            if(code_data != None):
-                lat_long_list.append("{},{}".format(code_data['geo']['lat'],
-                    code_data['geo']['lng']))
-            else: return 0
+            code_response = requests.get(self.base_postcoder+code)
+            code_data = code_response.json()
+            # test if 404
+            if 'code' in code_data :
+               return 0
+            else :
+               lat_long_list.append("{},{}".format(code_data['wgs84_lat'], code_data['wgs84_lon']))
         return lat_long_list
 
     def get_distance(self,single_list, route_choice):

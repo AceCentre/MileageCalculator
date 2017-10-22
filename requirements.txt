@@ -8,7 +8,6 @@ googlemaps==2.4.4
 itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
--e git://github.com/e-dard/postcodes.git@d63c47b4ecd765bc2e4e6ba34bc0b8a796f44005#egg=Postcodes
 pyexcel==0.2.5
 pyexcel-io==0.2.2
 pyexcel-webio==0.0.7

@@ -24,13 +24,17 @@ header {
 {% block content %}
 
   <header>
-          <h1 class="text-center" id="logo"> British Miles </h1>
+          <h1 class="text-center" id="logo">Multi-stage (UK) mileage calculator </h1>
   </header>
+  <p align='center'>
+For more information on this - and to fork the project <a href="https://github.com/ACECentre/MileageCalculator/#README">find me on GitHub</a>. 
+</p>
+
 <hr>
 <div class="row">
       <div class="col-sm-6">
           <form action="/save" method="post" class="form" role="form">
-          <div class="form-group "><label class="control-label" for="postal_code_data">Postal code data</label>
+          <div class="form-group "><label class="control-label" for="postal_code_data">Paste your Postal code data here:</label>
           <textarea class="form-control" rows=10 id="postal_code_data" name="postal_code_data">{{postal_code_data}}</textarea> <br />
           e.g. <br />
           OL8 3QL to OX29 4SZ to BR4 OER to OL8 3QL <br />
@@ -80,6 +84,7 @@ header {
   <!--  <input type=submit class= "btn btn-success btn-lg" name="format" value="Google Sheet"> -->
   </form>
   </div>
+
 
 {% endif %}
 {% endblock %}

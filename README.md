@@ -1,4 +1,4 @@
-#Mileage Calculator
+# Mileage Calculator
 
 ## What does this do?
 
@@ -17,7 +17,7 @@ By the power of Greyskull!
 
 ## Why?
 
-To help me fill in my expense claim forms
+To help me fill in my expense claim forms. I was bored having to copy and paste loads of postcodes into google maps so I instead wasted twice as much time making an app to do it for me. 
 
 ## Note
 

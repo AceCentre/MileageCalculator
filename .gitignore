@@ -3,3 +3,4 @@ apikey.txt
 *.pyc
 .envrc
 .direnv/
+_pycache_

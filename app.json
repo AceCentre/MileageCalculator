@@ -1,0 +1,7 @@
+{
+  "name": "UKMileageCalculator",
+  "description": "A simple python 3 based app that calculates mileage between multiple postcodes",
+  "repository": "https://github.com/ACECentre/MileageCalculator",
+  "logo": "https://acecentre.org.uk/wp-content/themes/ace-centre/assets/images/ace-centre-logo-new.png",
+  "keywords": ["python", "mapit", "GoogleMaps"]
+}

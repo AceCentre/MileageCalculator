@@ -10,6 +10,7 @@ from wtforms.validators import DataRequired
 from wtforms import Form, TextAreaField, SubmitField, StringField, SelectField
 import os
 import csv
+import logging
 
 port = int(os.environ.get('PORT', 5000))
 API_KEY_FILE_NAME = "apikey.txt"
@@ -35,6 +36,16 @@ def get_api_key():
 			api_key = key_file.read().rstrip()
 		return api_key
 
+def get_mapit_key():
+	if "MAPIT_KEY" in os.environ: 
+		return os.environ['MAPIT_KEY']
+	else: 
+		api_path = os.path.join(os.getcwd(),MAPIT_KEY_FILE_NAME)
+		with open(api_path) as key_file:
+			api_key = key_file.read().rstrip()
+		return api_key
+
+
 @app.route('/')
 def index():
     return render_template('index.html',
@@ -45,9 +56,11 @@ def save():
     data = dict(request.form.items())
     postal_code_data = (data['postal_code_data'])
     route_choice = data['route choice']
-    pc = PostalCodeDistance(postal_code_data, get_api_key())
+    pc = PostalCodeDistance(postal_code_data, get_api_key(), get_mapit_key())
     postal_code_list = pc.get_postal_codes(postal_code_data)
+    logging.warning(postal_code_list)
     list_of_distances = pc.get_list_of_distances(route_choice)
+    logging.warning(list_of_distances)
     return render_template('index.html', route=route_choice,
         list_of_distances = list_of_distances,
         postal_code_data = postal_code_data, postal_code_list = postal_code_list)
@@ -70,6 +83,7 @@ def getmiles():
     postal_code_data = request.query_string.decode("utf-8")
     pc = PostalCodeDistance(postal_code_data, get_api_key())
     postal_code_list = pc.get_postal_codes(postal_code_data)
+    
     route_choice = "fastest"
     list_of_distances = pc.get_list_of_distances(route_choice)
     return render_template('index.html', route=route_choice,

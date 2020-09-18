@@ -11,10 +11,11 @@ class PostalCodeDistance():
     ALTERNATIVES = 'True'
     METERS_IN_A_MILE = 1600
 
-    def __init__(self,postal_code_data, api_key):
+    def __init__(self,postal_code_data, api_key, mapit_key):
         self.base_postcoder = 'https://mapit.mysociety.org/postcode/'
         self.postal_code_data = postal_code_data
         self.client = googlemaps.Client(api_key)
+        self.mapit_urlstr = '?api_key='+mapit_key
         logging.warning(self.client)
 
 
@@ -29,7 +30,7 @@ class PostalCodeDistance():
         #takes a list of postal codes and returns a list of corresponding lat/long
         lat_long_list = []
         for code in postal_code_list:
-            code_response = requests.get(self.base_postcoder+code)
+            code_response = requests.get(self.base_postcoder+code+self.mapit_urlstr)
             code_data = code_response.json()
             # test if 404
             if 'code' in code_data :

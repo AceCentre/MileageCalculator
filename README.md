@@ -27,6 +27,7 @@ We round up to the nearest whole mile. Hope thats ok with you
 ## Deploy
 
 * You will need a [Google Maps API Key](https://developers.google.com/maps/documentation/javascript/get-api-key) environmental variable (named 'GAPI_KEY')
+* You will also need a [MapIt API Key](https://mapit.mysociety.org/pricing/) environment variable (named as 'MAPIT_KEY')
 * You should set a port environmental variable ('PORT" = 33507)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)

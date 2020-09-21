@@ -37,7 +37,7 @@ For more information on this - and to fork the project <a href="https://github.c
           <div class="form-group "><label class="control-label" for="postal_code_data">Paste your Postal code data here:</label>
           <textarea class="form-control" rows=10 id="postal_code_data" name="postal_code_data">{{postal_code_data}}</textarea> <br />
           e.g. <br />
-          OL8 3QL to OX29 4SZ to BR4 OER to OL8 3QL <br />
+          OL8 3QL to OX29 4SZ to BR4 0ER to OL8 3QL <br />
           OL8 3QL to OX294SZ to OL83QL <br />
           <div class="radio">
             <label><input type="radio" name="route choice" value="fastest"{%if route == 'fastest'%}
@@ -88,3 +88,5 @@ For more information on this - and to fork the project <a href="https://github.c
 
 {% endif %}
 {% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>

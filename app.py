@@ -65,20 +65,7 @@ def save():
     return render_template('index.html', route=route_choice,
         list_of_distances = list_of_distances,
         postal_code_data = postal_code_data, postal_code_list = postal_code_list)
-"""
-@app.route('/auth')
-def auth():
-    drive_helper = google_drive_helper.Google_Drive_Helper(
-        google_drive_helper.SCOPES, google_drive_helper.APPLICATION_NAME,
-        google_drive_helper.JSON_FILE_NAME)
-    url = drive_helper.get_credentials(
-        "http://192.168.0.122:8000/" , 'british_miles.json', "https://www.googleapis.com/auth/drive.metadata.readonly")
-    return(redirect(url))
-@app.route('/sheets')
-def sheets():
-    print('test')
-    return 0
-"""
+
 @app.route('/getmiles')
 def getmiles():
     postal_code_data = request.query_string.decode("utf-8")
@@ -108,10 +95,7 @@ def download():
     output.headers["Content-Disposition"] = "attachment; filename=export.csv"
     output.headers["Content-type"] = "text/csv"
     return output
-    """else:
-        response = make_response(redirect(url_for('auth')))
-        response.set_cookie('csv', json.dumps(csv_data))
-        return response
-"""
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)

@@ -13,7 +13,8 @@ import csv
 import logging
 
 port = int(os.environ.get('PORT', 5000))
-API_KEY_FILE_NAME = "apikey.txt"
+API_KEY_FILE_NAME = "google-apikey.txt"
+MAPIT_KEY_FILE_NAME = "mapit-apikey.txt"
 CSV_MESSAGE = "Export CSV'"
 class PostalForm(FlaskForm):
     postal_code_data = TextAreaField("Postal code data")

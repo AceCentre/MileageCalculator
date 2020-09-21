@@ -9,6 +9,8 @@ It provides a box for the user to paste lines like:
 
 and hitting the 'Go' button it will return the mileage between these points.
 
+[![Demo of MileageCalc with Excel](https://i.gyazo.com/2f7afca8cb021b623c627edba06e92c3.gif)](https://gyazo.com/2f7afca8cb021b623c627edba06e92c3)
+
 ## How?
 
 By the power of Greyskull!

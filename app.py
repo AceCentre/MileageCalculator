@@ -69,7 +69,7 @@ def save():
 @app.route('/getmiles')
 def getmiles():
     postal_code_data = request.query_string.decode("utf-8")
-    pc = PostalCodeDistance(postal_code_data, get_api_key())
+    pc = PostalCodeDistance(postal_code_data, get_api_key(), get_mapit_key())
     postal_code_list = pc.get_postal_codes(postal_code_data)
     
     route_choice = "fastest"
@@ -83,7 +83,7 @@ def getmiles():
 def download():
     data = dict(request.form.items())
     postal_code_data = (data['postal_code_data'])
-    pc = PostalCodeDistance(postal_code_data, get_api_key())
+    pc = PostalCodeDistance(postal_code_data, get_api_key(), get_mapit_key())
     postal_code_list = pc.get_postal_codes(postal_code_data)
     list_of_distances = (data['list_of_distances'])
     fixed_list_of_distances = json.loads(list_of_distances) # needed to re-serialize list

@@ -30,7 +30,7 @@ class PostalCodeDistance():
         #takes a list of postal codes and returns a list of corresponding lat/long
         lat_long_list = []
         for code in postal_code_list:
-            code_response = requests.get(self.base_postcoder+code+self.mapit_urlstr)
+            code_response = requests.get(self.base_postcoder+code+self.mapit_urlstr, verify=False)
             code_data = code_response.json()
             # test if 404
             if 'code' in code_data :
